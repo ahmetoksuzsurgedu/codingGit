@@ -1,0 +1,19 @@
+{
+  "name": "02-3-npminit",
+  "version": "1.0.0",
+  "description": "nmp init komutunun kullanimini ögrenme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "viewMessage": "echo \"Message from SCRIPT specified\" ",
+    "runApp": "node index.js"
+  },
+  "author": "Ahmet",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  },
+  "dependencies": {
+    "slugify": "^1.6.1"
+  }
+}
