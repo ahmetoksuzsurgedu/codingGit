@@ -1,0 +1,43 @@
+html 
+    head 
+        title Hello PUG 
+    body 
+        include title
+        hr
+        =phone 
+        hr
+        span(style="color:white;background-color:blue") PUG is here!!! NEFISE is not!
+        br
+        |Hello PUG in body ... Name: #{name}
+        hr
+        include footer.pug
+        //- will not output within markup :SADECE DEVELOPER ORTAMI ICIN
+        // just some paragraphs- Browserin element bölmesinde görülebiliyor
+        hr
+        - var jobTitle ='Armut Toplayici'
+        - var Company ='Surgedu'
+        =jobTitle
+        br
+        | sirketi:  #{Company.toUpperCase() }
+        hr
+        - var number = 10;
+        if !number
+            | Number does not exist.
+        else if number === 10
+            | The number is #{number}.
+        else
+            | The number is NOT 10.
+        br
+        ul
+            each val in [1, 2, 3, 4, 5]
+                li= val
+        hr
+        ul
+            each val, index in ['zero', 'one', 'two']
+                li= index + ': ' + val
+        hr
+        | while dongüsü
+        - var n = 0;
+        ul
+            while n < 10
+                li= n++
