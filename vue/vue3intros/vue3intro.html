@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js intro</title>
+</head>
+
+<body>
+        <div id="vue3introdiv">
+            <h1>Vue.js intro</h1>
+            <click-counter></click-counter><br>
+            <click-counter></click-counter><br>
+            <click-counter></click-counter><br>
+            <click-counter></click-counter><br>
+        </div>
+
+    <script type="text/x-template" id="click-counter-template">
+        <button @click="count++">the count is: {{count}}</button>
+    </script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="vue3intro.js"></script>
+
+</body>
+</html>

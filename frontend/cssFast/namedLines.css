@@ -1,0 +1,46 @@
+.container {
+    height: 100%;
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: [main-start] 1fr [content-start] 5fr [content-end main-end];
+    grid-template-rows: [main-start] 40px [content-start] auto [content-end] 40px; [main-end]
+}
+
+.header {
+    grid-column: main;
+    /* grid-column: main-start / main-end; */
+}
+.menu {
+    grid-column: 1 / 2;
+}
+.content {
+    grid-area: content;
+    /* grid-column: content; tam bi box oldugu icin area kullanabiliyoruz*/
+    /* grid-column: content-start / content-end ; */
+}
+.footer {
+    grid-column: main;
+    /* grid-column: main-start / main-end; */
+}
+
+html, body {
+    box-sizing: border-box;
+    background-color: #ffeead;
+    height: 100%;
+    padding: 10px;
+    margin: 0px;
+}
+
+.container > div:nth-child(1n) {background-color: #96ceb4;}
+.container > div:nth-child(2n) {background-color: #ff6f69;}
+.container > div:nth-child(3n) {background-color: #88d8b0;}
+.container > div:nth-child(4n) {background-color: #ffcc5c;}
+
+/* Frosted glass effect*/ 
+.card {
+    border-radius: 8px;
+    backdrop-filter: blur(28px) saturate(180%);
+    background-color: rgba(red, green, blue, 0.5);
+    box-shadow: 0 1px 12px rgba(0, 0 , 0, 0.25);
+    border: 1px solid rgba(red, green, blue, 0.3);
+}

@@ -1,0 +1,81 @@
+/* variable icin scoop onemli :root tüm doc demek yani html tagi icindeki hersey */
+:root {
+    --red: #ff6f69; /* böyle variable tanimlayip*/
+    --beige: #ffeead;
+    --yellow: #ffcc5c;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--beige);
+    /* color: #ff6f69; bunun yerine asagidaki gibi kullaniyoruz variable lari*/
+    color: var(--red); /* böyle kullaniyoruz*/
+}
+
+#navbar a {
+    color: var(--nav-red);
+}
+
+.item {
+    --item-green:rgba(69, 241, 11, 0.6);
+    background: var(--yellow);
+    color: var(--item-green);
+}
+
+a {
+    text-decoration: none;
+    font-size: 28px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+}
+
+#navbar {
+    --nav-red:#ff6f19;
+    padding: 20px 0;
+    font-size: 24px;
+}
+
+.grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 200px 200px;
+    grid-auto-rows: 140px;
+    grid-gap: 20px;
+}
+
+#navbar > ul {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    padding: 0;
+    list-style-type: none;
+}
+
+p {
+    text-align: center;
+    font-size: 18px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer > p {
+    font-size: 12px;
+}
+
+button {
+    margin: 0px auto;
+    display: block;
+    padding: 5px 10px;
+    border: none;
+    background: var(--red);
+    color: var(--item-green);
+}
+
+/* Hättest du einen Moment Zeit? Ich brauche deine Hilfe. */

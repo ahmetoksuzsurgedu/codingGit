@@ -1,0 +1,43 @@
+.container {
+    border: 5px solid #ffcc5c;
+    display: flex;
+    /* flex-wrap: wrap; default u nowrap mis */
+
+}
+
+.home {
+   /* flex: 1; /*asagidaki ucu icin kisaca böyle: flex:1 1 0 normali */
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 200px;
+}
+
+.logout {
+    /* flex: 1; */
+    flex-grow: 10;
+    flex-shrink: 1; 
+    flex-basis: 200px;
+}
+
+
+.container > div {
+    padding: 10px;
+    text-align: center;
+    font-size: 2em;
+    color: #ffeead;
+    /* width: 300px; wrap örnegi */
+}
+
+body {
+    margin: 0;
+}
+
+html, body {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 10px;
+    background-color: #ffeead;
+}
+.container > div:nth-child(1) {background-color: #96ceb4;}
+.container > div:nth-child(2) {background-color: #ff6f69;}
+.container > div:nth-child(3) {background-color: #88d8b0;}

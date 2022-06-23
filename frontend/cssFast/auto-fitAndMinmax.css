@@ -1,0 +1,9 @@
+.container {
+    /* height: 100%; */
+    display: grid;
+    row-gap: 3px;
+    column-gap: 3px;
+    grid-template-columns: repeat(auto-fill ,minmax(100px,1fr));
+    /*grid-template-rows: repeat(2, 100px); /* grid-auto-rows olunca bu satira gerek kalmiyor*/
+    grid-auto-rows: 100px; /* yeni olusturulan rowlarin sizeini belirliyor.*/
+}
