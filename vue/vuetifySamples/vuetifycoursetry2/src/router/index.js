@@ -27,6 +27,11 @@ const routes = [
     path: '/dashboard',
     name: 'Dashboard',
     component: () => import('../views/Dash-board.vue')
+  },
+  {
+    path: '/jsondata',
+    name: 'Jsondata',
+    component: () => import('../views/Json-data.vue')
   }
 ]
 

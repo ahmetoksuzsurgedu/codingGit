@@ -62,6 +62,10 @@ export default {
       {
         label: 'Dashboard',
         url: '/dashboard'
+      },
+      {
+        label: 'Jsondata',
+        url: '/jsondata'
       }
     ]
     }

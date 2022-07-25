@@ -9,18 +9,10 @@
         @click:row="selectRow"
         ></v-data-table>
 
-        <v-snackbar
-          v-model="snackbar"
-        >
+        <v-snackbar v-model="snackbar">
         You have selected- Sectiginiz :   {{ currentItem }}
-
           <template v-slot:action="{ attrs }">
-            <v-btn
-              color="pink"
-              text
-              v-bind="attrs"
-              @click="snackbar = false"
-            >
+            <v-btn color="pink" text @click="snackbar = false" v-bind="attrs">
               Close
             </v-btn>
           </template>
@@ -30,8 +22,7 @@
 
 <script>
   export default {
-    data () {
-      return {
+    data: () => ({
         currentItem:'',
         snackbar: false,
         headers: [
@@ -129,8 +120,7 @@
             iron: '6%',
           },
         ],
-      }
-    },
+    }),
     methods: {
       selectRow(event) {
         this.snackbar= true
@@ -140,7 +130,4 @@
   }
 </script>
 
-
-<style>
-
-</style>
+<style></style>
