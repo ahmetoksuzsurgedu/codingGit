@@ -32,6 +32,16 @@ const routes = [
     path: '/jsondata',
     name: 'Jsondata',
     component: () => import('../views/Json-data.vue')
+  },
+  {
+    path: '/signup',
+    name: 'Signup',
+    component: () => import('../views/Sign-up.vue')
+  },
+  {
+    path: '/try',
+    name: 'Try',
+    component: () => import('@/views/Sample-Code-Try.vue')
   }
 ]
 
