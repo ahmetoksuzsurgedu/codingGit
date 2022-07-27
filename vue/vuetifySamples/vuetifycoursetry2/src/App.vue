@@ -15,9 +15,9 @@
         {{ link.label }}
       </v-btn>
     </v-app-bar>
-    <v-content>
+    <v-main>
       <router-view/>
-    </v-content>
+    </v-main>
 
     <!-- <nav>
       <router-link to="/">Home</router-link> |

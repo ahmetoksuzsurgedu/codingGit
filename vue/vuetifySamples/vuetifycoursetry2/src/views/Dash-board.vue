@@ -27,6 +27,27 @@
             <EventTimeline :timeline="timeline"/>
           </v-col>
         </v-row>
+
+        <!-- buradaki row directives ler icin icerik cogaltma adina eklendi sanirim -->
+        <v-row id="below-the-fold" v-intersect="showMoreContent">
+        <h3>burasi</h3>
+          <v-col cols="12" md="8">
+            <EmployeesTable :employees="employees" @select-employee="setEmployee" />
+          </v-col>
+          <v-col cols="12" md="4">
+            <EventTimeline :timeline="timeline" />
+          </v-col>
+        </v-row>
+        <v-row v-if="loadNewContent" id="more-content">
+        <v-col>
+          <v-skeleton-loader
+            ref="skeleton"
+            type="table"
+            class="mx-auto"
+          ></v-skeleton-loader>
+        </v-col>
+        </v-row>
+
         <!-- <v-snackbar v-model="snackbar" :left="true"> böyle tüm breackpointlerde left aligned ama asagidaki sekilde -->
         <v-snackbar v-model="snackbar" :left="$vuetify.breakpoint.lgAndUp">
         You have selected :   {{ selectedEmployee.name /* currentItem */ }} , 
@@ -67,6 +88,7 @@ import statisticsData from '@/data/statistics.json'
         statistics: statisticsData,
         timeline: timelineData,
         snackbar: false,
+        loadNewContent: false,
         // currentItem:'',
         // headers: [
         //   {
@@ -165,6 +187,10 @@ import statisticsData from '@/data/statistics.json'
         // ],
     }),
     methods: {
+      showMoreContent(entries) {
+        //console.log(entries[0].isIntersecting)
+        this.loadNewContent = entries[0].isIntersecting
+      },
       setEmployee(event) {
         this.snackbar = true
         this.selectedEmployee.name = event.name
@@ -174,6 +200,7 @@ import statisticsData from '@/data/statistics.json'
       //   this.snackbar= true
       //   this.currentItem = event.name
       // }
+
     }
   }
 </script>

@@ -1,4 +1,8 @@
 <template>
+<v-container>
+  <v-row v-ripple class="text-center elevation-2 pa-12 text-h5">
+      <div>Alle row mit v-ripple</div>
+  </v-row>
   <v-row>
     <v-col
       cols="12"
@@ -123,6 +127,7 @@
     </v-col>
     <v-spacer></v-spacer>
   </v-row>
+</v-container>
 </template>
 
 <script>

@@ -1,62 +1,98 @@
 <template>
-	<v-app>
-		<v-app-bar app color="primary" dark>
-			<v-toolbar-title>Vuetify Dashboard</v-toolbar-title>
-			<v-spacer></v-spacer>
-			<v-btn
-				v-for="link in links"
-				:key="`${link.label}-header-link`"
-				text
-				rounded
-				:to="link.url"
-			>
-				{{ link.label }}
-			</v-btn>
-		</v-app-bar>
-		<v-content>
-			<router-view></router-view>
-		</v-content>
-		<v-footer color="primary lighten-1" padless>
-			<v-layout justify-center wrap>
-				<v-btn
-					v-for="link in links"
-					:key="`${link.label}-footer-link`"
-					color="white"
-					text
-					rounded
-					class="my-2"
-					:to="link.url"
-				>
-					{{ link.label }}
-				</v-btn>
-				<v-flex primary lighten-2 py-4 text-center white--text xs12>
-					{{ new Date().getFullYear() }} — <strong>Vuetify Dashboard</strong>
-				</v-flex>
-			</v-layout>
-		</v-footer>
-	</v-app>
+  <v-container>
+    <h1>Dashboard</h1>
+    <v-row>
+      <v-col v-for="sale in sales" :key="`${sale.title}`" cols="12" md="4">
+        <SalesGraph :sale="sale"/>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col
+        v-for="statistic in statistics"
+        :key="`${statistic.title}`"
+        cols="12"
+        md="6"
+        lg="3"
+      >
+        <StatisticCard :statistic="statistic" />
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="12" md="8">
+        <EmployeesTable :employees="employees" @select-employee="setEmployee"/>
+      </v-col>
+      <v-col cols="12" md="4">
+        <EventTimeline :timeline="timeline"/>
+      </v-col>
+    </v-row>
+
+    <v-row id="below-the-fold">
+      <v-col cols="12" md="8">
+        <EmployeesTable :employees="employees" @select-employee="setEmployee" />
+      </v-col>
+      <v-col cols="12" md="4">
+        <EventTimeline :timeline="timeline" />
+      </v-col>
+    </v-row>
+
+    <v-row id="more-content">
+      <v-col>
+        <v-skeleton-loader
+          ref="skeleton"
+          type="table"
+          class="mx-auto"
+        ></v-skeleton-loader>
+      </v-col>
+    </v-row>
+
+    <v-snackbar v-model="snackbar" :left="$vuetify.breakpoint.lgAndUp">
+      You have selected :   {{ selectedEmployee.name }},
+      {{ selectedEmployee.title }}
+      <v-btn color="pink" text @click="snackbar = false">
+        Close
+      </v-btn>
+    </v-snackbar>
+  </v-container>
 </template>
 
 <script>
+import EmployeesTable from '../components/EmployeesTable'
+import EventTimeline from '../components/EventTimeline'
+import SalesGraph from '../components/SalesGraph'
+import StatisticCard from '../components/StatisticCard'
+
+import employeesData from '../data/employees.json'
+import timelineData from '../data/timeline.json'
+import salesData from '../data/sales.json'
+import statisticsData from '../data/statistics.json'
+
 export default {
-	name: 'App',
-	data() {
-		return {
-			links: [
-				{
-					label: 'Home',
-					url: '/'
-				},
-				{
-					label: 'Login',
-					url: '/login'
-				},
-				{
-					label: 'Dashboard',
-					url: '/dashboard'
-				}
-			]
-		}
-	}
+  name: 'DashboardPage',
+  components: {
+    EmployeesTable,
+    EventTimeline,
+    SalesGraph,
+    StatisticCard
+  },
+  data() {
+    return {
+      selectedEmployee: {
+        name: '',
+        title: ''
+      },
+      employees: employeesData,
+      sales: salesData,
+      statistics: statisticsData,
+      timeline: timelineData,
+      snackbar: false,
+    }
+  },
+  methods: {
+    setEmployee(event) {
+      this.snackbar = true
+      this.selectedEmployee.name = event.name
+      this.selectedEmployee.title = event.title
+    }
+  }
 }
 </script>
